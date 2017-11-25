@@ -1,5 +1,5 @@
 // Import the page's CSS. Webpack will know what to do with it.
-import "../stylesheets/app.css";
+//import "/app/css/app.css";
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
@@ -75,7 +75,7 @@ window.App = {
     var meta;
     MetaCoin.deployed().then(function(instance) {
       meta = instance;
-      return meta.sendCoin(receiver, amount, {from: account});
+      return meta.transfer(receiver, amount, {from: account});
     }).then(function() {
       self.setStatus("Transaction complete!");
       self.refreshBalance();

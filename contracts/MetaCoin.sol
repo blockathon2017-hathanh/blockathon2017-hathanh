@@ -16,14 +16,25 @@ contract MetaCoin {
 		balances[tx.origin] = 10000;
 	}
 
-	function sendCoin(address receiver, uint amount) returns(bool sufficient) {
-		if (balances[msg.sender] < amount) return false;
-		balances[msg.sender] -= amount;
-		balances[receiver] += amount;
-		Transfer(msg.sender, receiver, amount);
-		return true;
-	}
+	//function sendCoin(address receiver, uint amount) returns(bool sufficient) {
+	//	if (balances[msg.sender] < amount) return false;
+	//	balances[msg.sender] -= amount;
+	//	balances[receiver] += amount;
+	//	Transfer(msg.sender, receiver, amount);
+	//	return true;
+	//}
 
+ 	function transfer(address _to, uint256 _amount) returns (bool success) {
+         if (balances[msg.sender] >= _amount 
+             && _amount > 0
+             && balances[_to] + _amount > balances[_to]) {
+             balances[msg.sender] -= _amount;
+             balances[_to] += _amount;
+             return true;
+         } else {
+             return false;
+         }
+     }
 	function getBalanceInEth(address addr) returns(uint){
 		return ConvertLib.convert(getBalance(addr),2);
 	}

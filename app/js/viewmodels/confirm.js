@@ -49,4 +49,8 @@ $(document).ready(function () {
     $("#productName").text($.urlParam("name"));
     $("#price").text($.urlParam("price"));
     amount = $.urlParam("price");
+
+    web3.eth.getBalance("0xf0da26fd490d42cd39e13c36e459b7ee3cd2bd11", function(error, result){
+        currPoint = web3.fromWei(result.toString());        
+    });    
 });

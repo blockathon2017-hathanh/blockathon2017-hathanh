@@ -21,7 +21,13 @@ function Dashboad() {
 		self.Offers.push(new Offer('2017/11/25 11:10', 'Tặng 1000 Point khi mua hàng ngày 23/11', 'Thế giới đi động'));
         self.Offers.push(new Offer('2017/11/26 12:10', 'Mua sắm thả ga cả nhà cùng thích', 'Thời trang Nem'));
         self.Offers.push(new Offer('2017/11/24 11:10', 'Tặng phí bảo hiểm và 50.000 POINT khi mua Mazda 5 2017', 'BigC'));
-		self.Offers.push(new Offer('2017/11/26 11:9', 'Join THE FIRST BLOCKCHAIN HACKATHON IN VIET NAM to get 2000 POINT', 'Infinity Blockchain Labs'));
+        self.Offers.push(new Offer('2017/11/26 11:9', 'Join THE FIRST BLOCKCHAIN HACKATHON IN VIET NAM to get 2000 POINT', 'Infinity Blockchain Labs'));
+        
+        web3.eth.getBalance("0xf0da26fd490d42cd39e13c36e459b7ee3cd2bd11", function(error, result){
+            var currPoint = web3.fromWei(result.toString());
+            console.log(result.toString())
+            $("#balance").text(currPoint);        
+        });
     });
 }
 
