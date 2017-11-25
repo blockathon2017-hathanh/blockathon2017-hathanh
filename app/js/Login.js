@@ -76,7 +76,7 @@ function DoLogin() {
     if ((userName == 'user1' && password == "6b2b21929ba6e33ae31e8ec4896e2feb") || (userName == 'user2' && password == "6b2b21929ba6e33ae31e8ec4896e2feb")) {
         $("#message").text("Login successfull...");
         $("#message").addClass("alert-success").removeClass("display-hide").removeClass("alert-danger");
-        window.location.href = "dashboad.html";
+        window.location.href = "/dashboad.html";
         return;
     }
     else {
